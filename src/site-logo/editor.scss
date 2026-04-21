@@ -1,0 +1,73 @@
+.responsive-site-logo-editor {
+	.rsl-editor__canvas-preview {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 12px;
+		padding: 16px;
+
+		img {
+			max-width: 100%;
+			max-height: 120px;
+			width: auto;
+			height: auto;
+			object-fit: contain;
+		}
+	}
+
+	.rsl-editor__preview-toggle {
+		opacity: 0.5;
+		transition: opacity 0.15s ease;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+}
+
+// Sidebar slot styles (rendered inside InspectorControls, outside block wrapper).
+.rsl-editor__slot {
+	margin-bottom: 16px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.rsl-editor__slot-label {
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	margin: 0 0 8px;
+	color: #757575;
+}
+
+.rsl-editor__preview {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 8px;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	background: #f9f9f9;
+
+	img {
+		max-width: 100%;
+		max-height: 80px;
+		width: auto;
+		height: auto;
+		object-fit: contain;
+	}
+}
+
+.rsl-editor__preview-actions {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.rsl-editor__upload {
+	display: flex;
+}

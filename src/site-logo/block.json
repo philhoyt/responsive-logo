@@ -1,0 +1,66 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "responsive-site-logo/site-logo",
+	"version": "1.0.0",
+	"title": "Responsive Site Logo",
+	"category": "media",
+	"description": "Display a site logo that swaps at a configurable mobile breakpoint.",
+	"keywords": [ "logo", "responsive", "mobile", "site logo", "header" ],
+	"textdomain": "responsive-site-logo",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"attributes": {
+		"desktopLogoId": {
+			"type": "number"
+		},
+		"desktopLogoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"desktopLogoAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"mobileLogoId": {
+			"type": "number"
+		},
+		"mobileLogoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"mobileLogoAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"breakpoint": {
+			"type": "number",
+			"default": 768
+		},
+		"maxWidth": {
+			"type": "number"
+		},
+		"desktopLogoType": {
+			"type": "string",
+			"default": ""
+		},
+		"mobileLogoType": {
+			"type": "string",
+			"default": ""
+		},
+		"linkToHome": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	}
+}

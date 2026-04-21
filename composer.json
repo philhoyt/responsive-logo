@@ -1,0 +1,15 @@
+{
+	"name": "philhoyt/responsive-site-logo",
+	"description": "A WordPress block for displaying a site logo that changes at a mobile breakpoint.",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
+	"require-dev": {
+		"squizlabs/php_codesniffer": "^3.10",
+		"wp-coding-standards/wpcs": "^3.1",
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.0"
+	},
+	"scripts": {
+		"lint": "phpcs",
+		"lint:fix": "phpcbf"
+	}
+}
