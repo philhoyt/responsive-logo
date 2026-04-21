@@ -31,18 +31,18 @@ if ( ! $desktop_url && ! $mobile_url ) {
  *
  * @param int    $attachment_id Attachment post ID.
  * @param string $alt           Alt text injected as aria-label.
- * @param string $class         Space-separated CSS classes for the <svg> element.
+ * @param string $css_class     Space-separated CSS classes for the <svg> element.
  * @param int    $max_width_px  Optional max-width in pixels (0 = none).
  * @return string
  */
-function rsl_inline_svg( $attachment_id, $alt, $class, $max_width_px ) {
+function rsl_inline_svg( $attachment_id, $alt, $css_class, $max_width_px ) {
 	$file = get_attached_file( $attachment_id );
 
 	if ( ! $file || ! file_exists( $file ) ) {
 		return '';
 	}
 
-	// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+	// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- reading a local file path returned by get_attached_file(); WP_Filesystem requires admin-page context with credential callbacks and is not suitable for block render callbacks.
 	$svg = file_get_contents( $file );
 
 	if ( ! $svg ) {
@@ -62,7 +62,7 @@ function rsl_inline_svg( $attachment_id, $alt, $class, $max_width_px ) {
 	$style_attr = $max_width_px ? ' style="max-width:' . $max_width_px . 'px"' : '';
 	$svg        = preg_replace(
 		'/<svg(\s)/i',
-		'<svg class="' . esc_attr( $class ) . '" role="img" aria-label="' . esc_attr( $alt ) . '"' . $style_attr . '$1',
+		'<svg class="' . esc_attr( $css_class ) . '" role="img" aria-label="' . esc_attr( $alt ) . '"' . $style_attr . '$1',
 		$svg,
 		1
 	);
@@ -77,39 +77,47 @@ function rsl_inline_svg( $attachment_id, $alt, $class, $max_width_px ) {
  * @param string $alt        Alt / aria-label text.
  * @param int    $id         Attachment post ID.
  * @param string $type       MIME type.
- * @param string $class      CSS classes for the element.
+ * @param string $css_class  CSS classes for the element.
  * @param int    $max_width  Optional max-width in pixels (0 = none).
  */
-function rsl_render_logo( $url, $alt, $id, $type, $class, $max_width ) {
+function rsl_render_logo( $url, $alt, $id, $type, $css_class, $max_width ) {
 	if ( 'image/svg+xml' === $type && $id ) {
-		$svg = rsl_inline_svg( $id, $alt, $class, $max_width );
+		$svg = rsl_inline_svg( $id, $alt, $css_class, $max_width );
 		if ( $svg ) {
-			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- sanitized by rsl_inline_svg().
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- rsl_inline_svg() strips XML declarations, <script> elements, and on* event attributes, and escapes class/aria-label with esc_attr().
 			echo $svg;
 			return;
 		}
 	}
 
-	$style = $max_width ? ' style="max-width:' . $max_width . 'px"' : '';
-	printf(
-		'<img src="%s" alt="%s" class="%s"%s />',
-		esc_url( $url ),
-		esc_attr( $alt ),
-		esc_attr( $class ),
-		$style // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- value is constructed from absint().
-	);
+	if ( $max_width ) {
+		printf(
+			'<img src="%s" alt="%s" class="%s" style="max-width:%dpx" />',
+			esc_url( $url ),
+			esc_attr( $alt ),
+			esc_attr( $css_class ),
+			absint( $max_width )
+		);
+	} else {
+		printf(
+			'<img src="%s" alt="%s" class="%s" />',
+			esc_url( $url ),
+			esc_attr( $alt ),
+			esc_attr( $css_class )
+		);
+	}
 }
 
 $unique_id = wp_unique_id( 'rsl-' );
 ?>
 <style>
 	#<?php echo esc_attr( $unique_id ); ?> .rsl-logo--mobile { display: none; }
-	@media (max-width: <?php echo $breakpoint; ?>px) {
+	@media (max-width: <?php echo absint( $breakpoint ); ?>px) {
 		#<?php echo esc_attr( $unique_id ); ?> .rsl-logo--desktop { display: none; }
 		#<?php echo esc_attr( $unique_id ); ?> .rsl-logo--mobile { display: block; }
 	}
 </style>
-<div id="<?php echo esc_attr( $unique_id ); ?>" <?php echo get_block_wrapper_attributes(); ?>>
+<div id="<?php echo esc_attr( $unique_id ); ?>" <?php echo get_block_wrapper_attributes(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- get_block_wrapper_attributes() is a WP core function that builds and sanitizes its own output; it cannot be double-escaped without corrupting the HTML. ?>>
 	<?php if ( $link_home ) : ?>
 	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php esc_attr_e( 'Homepage', 'responsive-site-logo' ); ?>">
 	<?php endif; ?>

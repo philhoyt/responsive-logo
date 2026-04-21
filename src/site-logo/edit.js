@@ -20,11 +20,9 @@ export default function Edit( { attributes, setAttributes } ) {
 		desktopLogoId,
 		desktopLogoUrl,
 		desktopLogoAlt,
-		desktopLogoType,
 		mobileLogoId,
 		mobileLogoUrl,
 		mobileLogoAlt,
-		mobileLogoType,
 		breakpoint,
 		maxWidth,
 		linkToHome,
@@ -57,18 +55,39 @@ export default function Edit( { attributes, setAttributes } ) {
 								<div className="rsl-editor__preview">
 									<img src={ url } alt={ alt } />
 									<div className="rsl-editor__preview-actions">
-										<Button variant="secondary" size="small" onClick={ open }>
-											{ __( 'Replace', 'responsive-site-logo' ) }
+										<Button
+											variant="secondary"
+											size="small"
+											onClick={ open }
+										>
+											{ __(
+												'Replace',
+												'responsive-site-logo'
+											) }
 										</Button>
-										<Button variant="link" size="small" isDestructive onClick={ onRemove }>
-											{ __( 'Remove', 'responsive-site-logo' ) }
+										<Button
+											variant="link"
+											size="small"
+											isDestructive
+											onClick={ onRemove }
+										>
+											{ __(
+												'Remove',
+												'responsive-site-logo'
+											) }
 										</Button>
 									</div>
 								</div>
 							) : (
 								<div className="rsl-editor__upload">
-									<Button variant="secondary" onClick={ open }>
-										{ __( 'Select Image', 'responsive-site-logo' ) }
+									<Button
+										variant="secondary"
+										onClick={ open }
+									>
+										{ __(
+											'Select Image',
+											'responsive-site-logo'
+										) }
 									</Button>
 								</div>
 							)
@@ -128,9 +147,14 @@ export default function Edit( { attributes, setAttributes } ) {
 
 				<PanelBody title={ __( 'Settings', 'responsive-site-logo' ) }>
 					<RangeControl
-						label={ __( 'Mobile Breakpoint (px)', 'responsive-site-logo' ) }
+						label={ __(
+							'Mobile Breakpoint (px)',
+							'responsive-site-logo'
+						) }
 						value={ breakpoint }
-						onChange={ ( value ) => setAttributes( { breakpoint: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { breakpoint: value } )
+						}
 						min={ 320 }
 						max={ 1200 }
 						step={ 10 }
@@ -143,17 +167,27 @@ export default function Edit( { attributes, setAttributes } ) {
 						label={ __( 'Max Width (px)', 'responsive-site-logo' ) }
 						value={ maxWidth || 0 }
 						onChange={ ( value ) =>
-							setAttributes( { maxWidth: value > 0 ? value : undefined } )
+							setAttributes( {
+								maxWidth: value > 0 ? value : undefined,
+							} )
 						}
 						min={ 0 }
 						max={ 800 }
 						step={ 10 }
-						help={ __( 'Set to 0 for no limit.', 'responsive-site-logo' ) }
+						help={ __(
+							'Set to 0 for no limit.',
+							'responsive-site-logo'
+						) }
 					/>
 					<ToggleControl
-						label={ __( 'Link to Homepage', 'responsive-site-logo' ) }
+						label={ __(
+							'Link to Homepage',
+							'responsive-site-logo'
+						) }
 						checked={ linkToHome }
-						onChange={ ( value ) => setAttributes( { linkToHome: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { linkToHome: value } )
+						}
 					/>
 				</PanelBody>
 			</InspectorControls>
@@ -164,24 +198,38 @@ export default function Edit( { attributes, setAttributes } ) {
 						<img
 							src={ previewUrl }
 							alt={ previewAlt }
-							style={ maxWidth ? { maxWidth: `${ maxWidth }px` } : {} }
+							style={
+								maxWidth ? { maxWidth: `${ maxWidth }px` } : {}
+							}
 						/>
 						{ desktopLogoUrl && mobileLogoUrl && (
 							<div className="rsl-editor__preview-toggle">
 								<ButtonGroup>
 									<Button
-										variant={ ! showMobile ? 'primary' : 'secondary' }
+										variant={
+											! showMobile
+												? 'primary'
+												: 'secondary'
+										}
 										size="small"
 										onClick={ () => setShowMobile( false ) }
 									>
-										{ __( 'Desktop', 'responsive-site-logo' ) }
+										{ __(
+											'Desktop',
+											'responsive-site-logo'
+										) }
 									</Button>
 									<Button
-										variant={ showMobile ? 'primary' : 'secondary' }
+										variant={
+											showMobile ? 'primary' : 'secondary'
+										}
 										size="small"
 										onClick={ () => setShowMobile( true ) }
 									>
-										{ __( 'Mobile', 'responsive-site-logo' ) }
+										{ __(
+											'Mobile',
+											'responsive-site-logo'
+										) }
 									</Button>
 								</ButtonGroup>
 							</div>
@@ -190,7 +238,10 @@ export default function Edit( { attributes, setAttributes } ) {
 				) : (
 					<Placeholder
 						icon="format-image"
-						label={ __( 'Responsive Site Logo', 'responsive-site-logo' ) }
+						label={ __(
+							'Responsive Site Logo',
+							'responsive-site-logo'
+						) }
 						instructions={ __(
 							'Select desktop and mobile logos in the sidebar.',
 							'responsive-site-logo'

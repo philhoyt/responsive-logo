@@ -1,4 +1,5 @@
 .responsive-site-logo-editor {
+
 	.rsl-editor__canvas-preview {
 		display: flex;
 		flex-direction: column;
@@ -25,7 +26,8 @@
 	}
 }
 
-// Sidebar slot styles (rendered inside InspectorControls, outside block wrapper).
+// Sidebar slot styles (rendered inside InspectorControls,
+// outside block wrapper).
 .rsl-editor__slot {
 	margin-bottom: 16px;
 
@@ -53,6 +55,7 @@
 	border-radius: 2px;
 	background: #f9f9f9;
 
+	/* stylelint-disable-next-line no-descending-specificity */
 	img {
 		max-width: 100%;
 		max-height: 80px;

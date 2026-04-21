@@ -23,6 +23,7 @@
 
 	<config name="minimum_supported_wp_version" value="6.6" />
 
+	<arg name="extensions" value="php" />
 	<arg name="basepath" value="." />
 	<arg name="colors" />
 	<arg value="sp" />
