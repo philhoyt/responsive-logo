@@ -12,6 +12,7 @@
 		"plugin-zip": "wp-scripts plugin-zip"
 	},
 	"devDependencies": {
+		"@wordpress/icons": "^10.0.0",
 		"@wordpress/scripts": "^31.0.0"
 	}
 }
