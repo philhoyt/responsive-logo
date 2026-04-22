@@ -10,7 +10,7 @@
  * Author URI:  https://philhoyt.com
  * License:     GPL-2.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: responsive-site-logo
+ * Text Domain: responsive-logo
  *
  * @package ResponsiveSiteLogo
  */

@@ -9,6 +9,10 @@
  * @var WP_Block $block      Block instance.
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 $desktop_url  = ! empty( $attributes['desktopLogoUrl'] ) ? $attributes['desktopLogoUrl'] : '';
 $desktop_alt  = isset( $attributes['desktopLogoAlt'] ) ? $attributes['desktopLogoAlt'] : '';
 $desktop_id   = ! empty( $attributes['desktopLogoId'] ) ? absint( $attributes['desktopLogoId'] ) : 0;
@@ -119,7 +123,7 @@ $unique_id = wp_unique_id( 'rsl-' );
 </style>
 <div id="<?php echo esc_attr( $unique_id ); ?>" <?php echo get_block_wrapper_attributes(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- get_block_wrapper_attributes() is a WP core function that builds and sanitizes its own output; it cannot be double-escaped without corrupting the HTML. ?>>
 	<?php if ( $link_home ) : ?>
-	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php esc_attr_e( 'Homepage', 'responsive-site-logo' ); ?>">
+	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php esc_attr_e( 'Homepage', 'responsive-logo' ); ?>">
 	<?php endif; ?>
 
 	<?php if ( $desktop_url ) : ?>

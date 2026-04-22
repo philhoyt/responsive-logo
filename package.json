@@ -11,6 +11,11 @@
 		"lint:php": "vendor/bin/phpcs",
 		"plugin-zip": "wp-scripts plugin-zip"
 	},
+	"files": [
+		"build",
+		"readme.txt",
+		"responsive-site-logo.php"
+	],
 	"devDependencies": {
 		"@wordpress/icons": "^10.0.0",
 		"@wordpress/scripts": "^31.0.0"

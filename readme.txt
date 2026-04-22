@@ -2,7 +2,7 @@
 Contributors: philhoyt
 Tags: logo, responsive, mobile, block
 Requires at least: 6.6
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 7.4
 Stable tag: 1.0.0
 License: GPL-2.0-or-later
