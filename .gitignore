@@ -1,5 +1,7 @@
 node_modules/
-vendor/
+# Root Composer dev dependencies only; lib/plugin-update-checker/vendor/
+# (Parsedown, PucReadmeParser) is loaded by PUC at runtime and ships in the zip.
+/vendor/
 *.zip
 /build
 .DS_Store
