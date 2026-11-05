@@ -12,7 +12,7 @@ A WordPress block for displaying a site logo that changes at a configurable mobi
 
 == Description ==
 
-Add a Responsive Site Logo block to display different logo images at desktop and mobile screen widths. Configure the breakpoint, max width, and whether the logo links to the homepage — all from the block inspector.
+Add a Responsive Site Logo block to display different logo images at desktop and mobile screen widths. Configure the breakpoint, max width, and whether the logo links to the homepage from the block inspector.
 
 **Features:**
 
