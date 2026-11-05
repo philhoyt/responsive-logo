@@ -1,6 +1,6 @@
 {
 	"name": "responsive-site-logo",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "A WordPress block for displaying a site logo that changes at a mobile breakpoint.",
 	"scripts": {
 		"build": "wp-scripts build --webpack-copy-php",

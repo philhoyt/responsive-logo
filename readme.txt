@@ -4,7 +4,7 @@ Tags: logo, responsive, mobile, block
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,9 @@ Add a Responsive Site Logo block to display different logo images at desktop and
 3. Add the **Responsive Site Logo** block via the block inserter.
 
 == Changelog ==
+
+= 1.0.2 =
+* Fix: The editor controls and the front-end logo are styled again; the stylesheets were missing from the build.
 
 = 1.0.1 =
 * Fix: Two or more Responsive Site Logo blocks on one page no longer cause a fatal error.
