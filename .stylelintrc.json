@@ -1,0 +1,7 @@
+{
+	"extends": "@wordpress/stylelint-config/scss-stylistic",
+	"ignoreFiles": [ "build/**", "lib/**", "node_modules/**", "vendor/**" ],
+	"rules": {
+		"selector-class-pattern": null
+	}
+}

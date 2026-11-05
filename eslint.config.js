@@ -8,7 +8,7 @@ const wpPlugin = require( '@wordpress/eslint-plugin' );
 
 module.exports = [
 	{
-		ignores: [ 'build/**', 'vendor/**', 'node_modules/**' ],
+		ignores: [ 'build/**', 'lib/**', 'vendor/**', 'node_modules/**' ],
 	},
 	{
 		// ESLint flat config discovers only *.js, *.cjs, *.mjs on its own.

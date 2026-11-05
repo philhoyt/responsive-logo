@@ -15,6 +15,6 @@ paths:
 - Text domain: `responsive-logo`
 - PHP minimum: 7.4
 - WP minimum: 6.6
-- Distribution: GitHub (no release workflow)
+- Distribution: GitHub (release workflow + Plugin Update Checker)
 - Main file: `responsive-site-logo.php`
 - Version constant: none (version in plugin header only)
