@@ -3,6 +3,9 @@ import { siteLogo } from '@wordpress/icons';
 import metadata from './block.json';
 import Edit from './edit';
 
+import './style.scss';
+import './editor.scss';
+
 registerBlockType( metadata.name, {
 	icon: siteLogo,
 	edit: Edit,
