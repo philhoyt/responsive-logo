@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "responsive-site-logo/site-logo",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"title": "Responsive Site Logo",
 	"category": "media",
 	"description": "Display a site logo that swaps at a configurable mobile breakpoint.",

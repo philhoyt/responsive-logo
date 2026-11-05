@@ -3,7 +3,7 @@
  * Plugin Name: Responsive Site Logo
  * Plugin URI:  https://github.com/philhoyt/responsive-logo
  * Description: A block for displaying a site logo that swaps at a configurable mobile breakpoint.
- * Version:     1.0.0
+ * Version:     1.0.1
  * Requires at least: 6.6
  * Requires PHP: 7.4
  * Author:      Phil Hoyt
