@@ -12,7 +12,7 @@ paths:
 # Project: Responsive Site Logo
 
 - Slug: `responsive-logo`
-- Text domain: `responsive-logo`
+- Text domain: `responsive-site-logo`
 - PHP minimum: 7.4
 - WP minimum: 6.6
 - Distribution: GitHub (release workflow + Plugin Update Checker)
